@@ -14,9 +14,15 @@ const initialState = {
 
 export const gameReducer = (state = initialState, action) => {
   if (action.type === SET_GUESS) {
-    return Object.assign({}, state, {
-      guesses: [...state.guesses, action.guess]
-    });
+    if (action.guess === null) {
+      return Object.assign({}, state, {
+        guesses: []
+      });
+    } else {
+      return Object.assign({}, state, {
+        guesses: [...state.guesses, action.guess]
+      });
+    }
   } else if (action.type === SET_FEEDBACK) {
     return Object.assign({}, state, {
       feedback: action.feedback
@@ -27,7 +33,7 @@ export const gameReducer = (state = initialState, action) => {
     });
   } else if (action.type === SET_ANSWER) {
     return Object.assign({}, state, {
-      correctAnswer: action.answer
+      correctAnswer: action.correctAnswer
     });
   }
   return state;

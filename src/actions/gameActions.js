@@ -17,7 +17,7 @@ export const setAural = aural => ({
 });
 
 export const SET_ANSWER = 'SET_ANSWER';
-export const setAnswer = answer => ({
+export const setAnswer = correctAnswer => ({
   type: SET_ANSWER,
-  answer
+  correctAnswer
 });
